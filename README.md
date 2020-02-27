@@ -1,6 +1,6 @@
-# Reporte de Crédito Consolidado con FICO® Score
+# Simulación del Reporte de Crédito Consolidado con FICO® Score y Prevención de Lavado de Dinero
 
-Este reporte muestra el historial crediticio con los Campos Asociados a Nómina, el cumplimiento de pago de los compromisos que la persona ha adquirido con entidades financieras, no financieras e instituciones comerciales que dan crédito o participan en actividades afines al crédito.
+Simula el reporta del historial crediticio; el cumplimiento de pago de los compromisos que la persona ha adquirido con entidades financieras, no financieras e instituciones comerciales que dan crédito o participan en actividades afines al crédito; y filtra contra listas de cumplimiento para Prevención de Lavado de Dinero.
 
 ## Requisitos
 
@@ -43,23 +43,19 @@ Los siguientes datos a modificar se encuentran en ***src/test/java/ApiTest.java*
 Es importante contar con el setUp() que se encargará de inicializar la url. Modificar la URL ***('the_url')***, como se muestra en el siguiente fragmento de código:
 
 ```java
-private Logger logger = LoggerFactory.getLogger(ApiTest.class.getName());
-private final RCCFicoScorePLDSimulacionApi api = new RCCFicoScorePLDSimulacionApi();
-private ApiClient apiClient = null;
-
 @Before()
 public void setUp() {
 	this.apiClient = api.getApiClient();
 	this.apiClient.setBasePath("the_url");
-	OkHttpClient insecureClient = ApiClient.getClientNoSSLVerification();
-	OkHttpClient okHttpClient = insecureClient.newBuilder()
-			.readTimeout(60, TimeUnit.SECONDS).build();
+	OkHttpClient okHttpClient = new OkHttpClient()
+		.newBuilder()
+		.readTimeout(30, TimeUnit.SECONDS)
+		.build();
 	apiClient.setHttpClient(okHttpClient);
 }
-
 ```
 
-En el archivo **TelecosSimulacionApiTest**, que se encuentra en ***src/test/java/io/TelcosSimulacion/client/api*** se deberá modificar el siguiente fragmento de código con los datos correspondientes:
+En el archivo **ApiTest**, que se encuentra en ***src/test/java/io/ApiTest/client/api*** se deberá modificar el siguiente fragmento de código con los datos correspondientes:
 
 ```java
 @Test
