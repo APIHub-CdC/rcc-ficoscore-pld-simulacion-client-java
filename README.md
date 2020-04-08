@@ -1,4 +1,4 @@
-# Simulación del Reporte de Crédito Consolidado con FICO® Score y Prevención de Lavado de Dinero
+# rcc-ficoscore-pld-simulacion-client-java
 
 Simula el reporte del historial crediticio; el cumplimiento de pago de los compromisos que la persona ha adquirido con entidades financieras, no financieras e instituciones comerciales que dan crédito o participan en actividades afines al crédito; y filtra contra listas de cumplimiento para Prevención de Lavado de Dinero. 
 
