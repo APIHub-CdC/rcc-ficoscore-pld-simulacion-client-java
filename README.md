@@ -72,20 +72,10 @@ public void getReporteTest() throws ApiException {
 	try {
 		persona.setApellidoPaterno("SESENTAYDOS");
 		persona.setApellidoMaterno("PRUEBA");
-		persona.setApellidoAdicional(null);
 		persona.setPrimerNombre("JUAN");
-		persona.setSegundoNombre(null);
 		persona.setFechaNacimiento("1965-08-09");
 		persona.setRFC("SEPJ650809JG1");
-		persona.setCURP(null);
 		persona.setNacionalidad("MX");
-		persona.setResidencia(null);
-		persona.setEstadoCivil(null);
-		persona.setSexo(null);
-		persona.setClaveElectorIFE(null);
-		persona.setNumeroDependientes(null);
-		persona.setFechaDefuncion(null);
-		persona.setDomicilio(null);
 
 		domicilio.setDireccion("PASADISO ENCONTRADO 58");
 		domicilio.setColoniaPoblacion("MONTEVIDEO");
@@ -93,10 +83,6 @@ public void getReporteTest() throws ApiException {
 		domicilio.setCiudad("CIUDAD DE MÉXICO");
 		domicilio.setEstado(CatalogoEstados.CDMX);
 		domicilio.setCP("07730");
-		domicilio.setFechaResidencia(null);
-		domicilio.setNumeroTelefono(null);
-		domicilio.setTipoDomicilio(null);
-		domicilio.setTipoAsentamiento(null);
 
 		persona.setDomicilio(domicilio);
 
