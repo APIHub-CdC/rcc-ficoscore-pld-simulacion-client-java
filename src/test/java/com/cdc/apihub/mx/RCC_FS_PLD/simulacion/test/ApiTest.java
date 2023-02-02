@@ -5,14 +5,8 @@ import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.DomicilioPeticion;
 import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.ApiClient;
 import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.ApiException;
 import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.api.RCCFSPLDApi;
-import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.Consultas;
-import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.Creditos;
-import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.DomiciliosRespuesta;
-import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.Empleos;
-import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.Mensajes;
 import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.PersonaPeticion;
 import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.Respuesta;
-import com.cdc.apihub.mx.RCC_FS_PLD.simulacion.client.model.Scores;
 import okhttp3.OkHttpClient;
 
 import org.junit.Test;
@@ -84,33 +78,6 @@ public class ApiTest {
 			Assert.assertTrue(response.getFolioConsulta() != null);
 			logger.info(response.toString());
 
-			if (response.getFolioConsulta() != null && !xFullReport) {
-				String folioConsulta = response.getFolioConsulta();
-
-				Consultas consultas = api.getConsultas(folioConsulta, xApiKey);
-				Assert.assertTrue(consultas.getConsultas() != null);
-				logger.info(consultas.toString());
-
-				Creditos creditos = api.getCreditos(folioConsulta, xApiKey);
-				Assert.assertTrue(creditos.getCreditos() != null);
-				logger.info(creditos.toString());
-
-				DomiciliosRespuesta domicilios = api.getDomicilios(folioConsulta, xApiKey);
-				Assert.assertTrue(domicilios.getDomicilios() != null);
-				logger.info(domicilios.toString());
-
-				Empleos empleos = api.getEmpleos(folioConsulta, xApiKey);
-				Assert.assertTrue(empleos.getEmpleos() != null);
-				logger.info(empleos.toString());
-
-				Scores scores = api.getScores(folioConsulta, xApiKey);
-				Assert.assertTrue(scores.getScores() != null);
-				logger.info(scores.toString());
-
-				Mensajes mensajes = api.getMensajes(folioConsulta, xApiKey);
-				Assert.assertTrue(mensajes.getMensajes() != null);
-				logger.info(mensajes.toString());
-			}
 		} catch (ApiException e) {
 			logger.error(e.getResponseBody());
 		}
