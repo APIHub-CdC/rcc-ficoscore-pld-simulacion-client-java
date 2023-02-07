@@ -38,8 +38,6 @@ public class ApiTest {
 	@Test
 	public void getReporteTest() throws ApiException {
 
-		Boolean xFullReport = false;
-
 		PersonaPeticion persona = new PersonaPeticion();
 		DomicilioPeticion domicilio = new DomicilioPeticion();
 		try {
@@ -73,7 +71,7 @@ public class ApiTest {
 
 			persona.setDomicilio(domicilio);
 
-			Respuesta response = api.getReporte(xApiKey, persona, xFullReport);
+			Respuesta response = api.getReporte(xApiKey, persona);
 
 			Assert.assertTrue(response.getFolioConsulta() != null);
 			logger.info(response.toString());
